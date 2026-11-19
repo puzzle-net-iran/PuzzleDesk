@@ -1,0 +1,22 @@
+name: PuzzleDesk Release Build
+
+# Builds the PuzzleDesk-branded Windows + Android clients (and the other
+# upstream platforms) and publishes them as a prerelease.
+# Triggered by pushing to the `release` branch (tags cannot be pushed via the
+# GitHub App, so the branch is the trigger). The release tag is
+# v1.5.1-puzzledesk1; it intentionally does not match flutter-tag.yml's
+# vX.Y.Z-N pattern, so no second build is triggered when the release is made.
+on:
+  push:
+    branches:
+      - release
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: ./.github/workflows/flutter-build.yml
+    secrets: inherit
+    with:
+      upload-artifact: true
+      upload-tag: v1.5.1-puzzledesk1
+      publish-update-metadata: false
