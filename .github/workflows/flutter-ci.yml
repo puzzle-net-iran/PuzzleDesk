@@ -17,7 +17,7 @@ on:
       - "appimage/**"
       - "flatpak/**"
 
-# Same reason as puzzledesk-release.yml: the repo default token is
+# Same reason as puzzlenetdesk-release.yml: the repo default token is
 # contents: read, but the called flutter-build.yml jobs need contents: write.
 permissions:
   contents: write
