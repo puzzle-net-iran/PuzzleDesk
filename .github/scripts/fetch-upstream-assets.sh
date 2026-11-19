@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# PuzzleDesk: restore binary assets that cannot live in this repo's text-only
+# puzzlenetdesk: restore binary assets that cannot live in this repo's text-only
 # snapshot. Downloads the exact upstream RustDesk 1.5.1 files from
 # rustdesk/rustdesk @ 23e5bb471a040d62f0a6ad52591fb30784265b73.
 # Runs in CI right after checkout, before any build step.
@@ -87,11 +87,11 @@ res/tray-icon.ico
 FILES
 echo "binary assets restored"
 
-# PuzzleDesk brand assets: our own logo/icons, downloaded from our own site.
+# puzzlenetdesk brand assets: our own logo/icons, downloaded from our own site.
 # These run AFTER the upstream restores above, so they override the RustDesk
 # files of the same path (icons, tray icon, launcher icons) and supply
 # flutter/assets/*, which upstream does not ship. Generated locally from the
-# PuzzleNet logo (see ~/workspace/puzzledesk/brand/).
+# PuzzleNet logo (see ~/workspace/puzzlenetdesk/brand/).
 PUZZLE_BASE="https://puzzlenetdesk.ir/brand"
 while IFS= read -r f; do
   [ -n "$f" ] || continue
@@ -138,4 +138,4 @@ res/icon.png
 res/mac-icon.png
 res/tray-icon.ico
 PUZZLE_FILES
-echo "PuzzleDesk brand assets restored"
+echo "puzzlenetdesk brand assets restored"

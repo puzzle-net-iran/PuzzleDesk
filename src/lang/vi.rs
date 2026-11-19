@@ -522,7 +522,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("auto_disconnect_option_tip", "Tự động ngắt kết nối khi không hoạt động"),
         ("Connection failed due to inactivity", "Ngắt kết nối do không hoạt động"),
         ("Check for software update on startup", "Kiểm tra cập nhật khi khởi động"),
-        ("upgrade_puzzledesk_server_pro_to_{}_tip", "Vui lòng nâng cấp RustDesk Server Pro lên phiên bản {} hoặc mới hơn!"),
+        ("upgrade_puzzlenetdesk_server_pro_to_{}_tip", "Vui lòng nâng cấp RustDesk Server Pro lên phiên bản {} hoặc mới hơn!"),
         ("pull_group_failed_tip", "Lấy thông tin nhóm thất bại"),
         ("Filter by intersection", "Lọc theo giao điểm"),
         ("Remove wallpaper during incoming sessions", "Xóa hình nền khi có kết nối đến"),

@@ -522,7 +522,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("auto_disconnect_option_tip", "தானியங்கு துண்டிப்பு விருப்பம்"),
         ("Connection failed due to inactivity", "செயலின்மையால் இணைப்பு தோல்வி"),
         ("Check for software update on startup", "தொடக்கத்தில் மென்பொருள் புதுப்பிப்பு சரிபார்"),
-        ("upgrade_puzzledesk_server_pro_to_{}_tip", "RustDesk Server Pro {} க்கு மேம்படுத்து"),
+        ("upgrade_puzzlenetdesk_server_pro_to_{}_tip", "RustDesk Server Pro {} க்கு மேம்படுத்து"),
         ("pull_group_failed_tip", "குழு இழுக்க தோல்வி"),
         ("Filter by intersection", "குறுக்குவெட்டால் வடிகட்டு"),
         ("Remove wallpaper during incoming sessions", "உள்வரும் அமர்வுகளில் வால்பேப்பர் நீக்கு"),

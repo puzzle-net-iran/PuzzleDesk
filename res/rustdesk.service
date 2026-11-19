@@ -1,5 +1,5 @@
 [Unit]
-Description=PuzzleDesk
+Description=puzzlenetdesk
 Requires=network.target
 After=systemd-user-sessions.service
 

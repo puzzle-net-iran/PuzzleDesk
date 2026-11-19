@@ -1,12 +1,12 @@
 <div dir="rtl" align="center">
 
-<img src="https://puzzlenetdesk.ir/logo.jpg" alt="PuzzleDesk" width="140">
+<img src="https://puzzlenetdesk.ir/logo.jpg" alt="puzzlenetdesk" width="140">
 
-# پازل‌دسک — PuzzleDesk
+# پازل‌نت دسک — puzzlenetdesk
 
 **نرم‌افزار ریموت دسکتاپ پازل‌نت — خدمتی نوین از گروه فنی پازل‌نت**
 
-[![Release](https://img.shields.io/github/v/release/puzzle-net-iran/PuzzleDesk?label=%D9%86%D8%B3%D8%AE%D9%87&color=AD0214)](https://github.com/puzzle-net-iran/PuzzleDesk/releases)
+[![Release](https://img.shields.io/github/v/release/puzzle-net-iran/puzzlenetdesk?label=%D9%86%D8%B3%D8%AE%D9%87&color=AD0214)](https://github.com/puzzle-net-iran/puzzlenetdesk/releases)
 [![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENCE)
 [![Website](https://img.shields.io/badge/Website-puzzlenetdesk.ir-AD0214)](https://puzzlenetdesk.ir)
 
@@ -22,25 +22,25 @@
 
 ## معرفی
 
-**پازل‌دسک** نرم‌افزار کنترل از راه دور (ریموت دسکتاپ) گروه فنی پازل‌نت است؛ بر پایهٔ
+**پازل‌نت دسک** نرم‌افزار کنترل از راه دور (ریموت دسکتاپ) گروه فنی پازل‌نت است؛ بر پایهٔ
 [RustDesk](https://github.com/rustdesk/rustdesk) نسخهٔ ۱٫۵٫۱ ساخته شده و با برند و
 سرور اختصاصی پازل‌نت ارائه می‌شود. همهٔ اتصال‌ها از **سرور ریموت ما** عبور می‌کند —
 سریع، پایدار و تحت کنترل گروه فنی پازل‌نت؛ هیچ ترافیکی سمت سرورهای عمومی RustDesk
 نمی‌رود.
 
-با پازل‌دسک می‌توانید از هر جایی به کامپیوتر خودتان یا کامپیوتر مشتری وصل شوید:
+با پازل‌نت دسک می‌توانید از هر جایی به کامپیوتر خودتان یا کامپیوتر مشتری وصل شوید:
 پشتیبانی از راه دور، کار از خانه، دسترسی به فایل‌ها و مدیریت سیستم‌ها — بدون
 نیاز به هیچ تنظیم اضافه‌ای.
 
 ## ⬇️ دانلود
 
-آخرین نسخه: **[v1.5.1-puzzledesk2](https://github.com/puzzle-net-iran/PuzzleDesk/releases/tag/v1.5.1-puzzledesk2)** (در حال ساخت)
+آخرین نسخه: **[v1.5.1-puzzlenetdesk1](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/tag/v1.5.1-puzzlenetdesk1)** (در حال ساخت)
 
 ### ویندوز
 
 فایل‌های ویندوز (exe و نصب‌کنندهٔ msi برای ۶۴ بیتی و ARM64، به‌علاوهٔ نسخهٔ
-سبک ۳۲ بیتی) را از **[صفحهٔ ریلیزها](https://github.com/puzzle-net-iran/PuzzleDesk/releases)**
-دانلود کنید — همهٔ فایل‌ها با نام PuzzleDesk منتشر می‌شوند.
+سبک ۳۲ بیتی) را از **[صفحهٔ ریلیزها](https://github.com/puzzle-net-iran/puzzlenetdesk/releases)**
+دانلود کنید — همهٔ فایل‌ها با نام puzzlenetdesk منتشر می‌شوند.
 
 > نسخه‌های ویندوز فعلاً بدون امضای دیجیتال منتشر می‌شوند؛ هنگام نصب، هشدار
 > SmartScreen ویندوز را با «Run anyway» رد کنید.
@@ -82,7 +82,7 @@
 
 ## 🖥️ سرور
 
-سرور پازل‌دسک (rendezvous + relay) روی VPS اختصاصی پازل‌نت میزبانی می‌شود و
+سرور پازل‌نت دسک (rendezvous + relay) روی VPS اختصاصی پازل‌نت میزبانی می‌شود و
 کلاینت از پیش برای اتصال به آن تنظیم شده است؛ کاربر هیچ تنظیمی لازم ندارد.
 وضعیت لحظه‌ای سرور را می‌توانید روی [وب‌سایت](https://puzzlenetdesk.ir)
 ببینید (چراغ سبز = وصل، قرمز = قطع).
@@ -92,8 +92,8 @@
 بیلدها به‌صورت خودکار با GitHub Actions ساخته می‌شوند؛ برای ساخت دستی:
 
 ```sh
-git clone https://github.com/puzzle-net-iran/PuzzleDesk
-cd PuzzleDesk
+git clone https://github.com/puzzle-net-iran/puzzlenetdesk
+cd puzzlenetdesk
 ```
 
 - فایل‌های باینری (آیکون‌ها و فونت‌ها) در این مخزن نیستند؛ اسکریپت
@@ -116,14 +116,14 @@ cd PuzzleDesk
 
 ## 🤝 مشارکت
 
-مشارکت در بهبود پازل‌دسک آزاد است؛ Issue باز کنید یا Pull Request بفرستید.
+مشارکت در بهبود پازل‌نت دسک آزاد است؛ Issue باز کنید یا Pull Request بفرستید.
 قوانین خانهٔ مخزن (حداقل تغییر، بدون ریفکتور بی‌مورد) در
-[`fork/AGENTS.md`](https://github.com/puzzle-net-iran/PuzzleDesk/blob/master/AGENTS.md)
+[`fork/AGENTS.md`](https://github.com/puzzle-net-iran/puzzlenetdesk/blob/master/AGENTS.md)
 آمده است.
 
 ## 📄 لایسنس و اعتبار
 
-پازل‌دسک تحت لایسنس **AGPL-3.0** منتشر می‌شود ([متن کامل](LICENCE)) و
+پازل‌نت دسک تحت لایسنس **AGPL-3.0** منتشر می‌شود ([متن کامل](LICENCE)) و
 فورکی از [RustDesk](https://github.com/rustdesk/rustdesk) است؛ لایسنس و اعتبار
 بالادستی حفظ شده است.
 
@@ -138,14 +138,14 @@ cd PuzzleDesk
 
 <div dir="ltr" align="center">
 
-## PuzzleDesk (English)
+## puzzlenetdesk (English)
 
-**PuzzleDesk** is PuzzleNet's remote desktop client — a branded fork of
+**puzzlenetdesk** is PuzzleNet's remote desktop client — a branded fork of
 [RustDesk](https://github.com/rustdesk/rustdesk) 1.5.1 (AGPL-3.0), preconfigured
 to use PuzzleNet's self-hosted rendezvous/relay server. No traffic goes to
 RustDesk's public servers.
 
-- **Download:** [Releases](https://github.com/puzzle-net-iran/PuzzleDesk/releases) — Windows (x86_64 / aarch64 / x86 Sciter) available now; Android coming soon.
+- **Download:** [Releases](https://github.com/puzzle-net-iran/puzzlenetdesk/releases) — Windows (x86_64 / aarch64 / x86 Sciter) available now; Android coming soon.
 - **Quick start:** run the app, share your 9-digit ID and one-time password, connect.
 - **Website:** [puzzlenetdesk.ir](https://puzzlenetdesk.ir) •
   **Support:** [Tawk.to chat](https://tawk.to/0233e6eb0a0f478f10b8690c7c83dca85e22f9fa) •
