@@ -9,6 +9,11 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+-[0-9]+'
       - '[0-9]+.[0-9]+.[0-9]+-[0-9]+'
 
+# Same reason as puzzledesk-release.yml: the repo default token is
+# contents: read, but the called flutter-build.yml jobs need contents: write.
+permissions:
+  contents: write
+
 jobs:
   run-flutter-tag-build:
     uses: ./.github/workflows/flutter-build.yml
