@@ -522,7 +522,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("auto_disconnect_option_tip", "صارف کی غیر فعالی پر آنے والے سیشنز خودکار طور پر بند کریں"),
         ("Connection failed due to inactivity", "انفعال کی وजہ سے کنکشن ناکام ہو گیا"),
         ("Check for software update on startup", "سٹارٹ اپ پر سافٹ ویر اپڈیٹ کے لیے چیک کریں"),
-        ("upgrade_rustdesk_server_pro_to_{}_tip", "براہِ کرم RustDesk Server Pro کو ورژن {} یا اس سے نئے پر اپ گریڈ کریں!"),
+        ("upgrade_puzzledesk_server_pro_to_{}_tip", "براہِ کرم RustDesk Server Pro کو ورژن {} یا اس سے نئے پر اپ گریڈ کریں!"),
         ("pull_group_failed_tip", "گروپ تازہ کرنے میں ناکامی"),
         ("Filter by intersection", "فلٹر بائی انسٹریکشن"),
         ("Remove wallpaper during incoming sessions", "ان کلینگ سیشنز کے دوران والپیپر کو ہٹائیں"),

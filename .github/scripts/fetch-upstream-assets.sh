@@ -86,3 +86,56 @@ res/mac-tray-light-x2.png
 res/tray-icon.ico
 FILES
 echo "binary assets restored"
+
+# PuzzleDesk brand assets: our own logo/icons, downloaded from our own site.
+# These run AFTER the upstream restores above, so they override the RustDesk
+# files of the same path (icons, tray icon, launcher icons) and supply
+# flutter/assets/*, which upstream does not ship. Generated locally from the
+# PuzzleNet logo (see ~/workspace/puzzledesk/brand/).
+PUZZLE_BASE="https://puzzlenetdesk.ir/brand"
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  mkdir -p "$(dirname "$f")"
+  curl -fsSL --retry 3 -o "$f" "$PUZZLE_BASE/$f"
+  [ -s "$f" ] || { echo "empty download: $f" >&2; exit 1; }
+done <<'PUZZLE_FILES'
+flutter/android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+flutter/android/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.png
+flutter/android/app/src/main/res/mipmap-hdpi/ic_launcher_round.png
+flutter/android/app/src/main/res/mipmap-hdpi/ic_stat_logo.png
+flutter/android/app/src/main/res/mipmap-hdpi/launch_image.png
+flutter/android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+flutter/android/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.png
+flutter/android/app/src/main/res/mipmap-mdpi/ic_launcher_round.png
+flutter/android/app/src/main/res/mipmap-mdpi/ic_stat_logo.png
+flutter/android/app/src/main/res/mipmap-mdpi/launch_image.png
+flutter/android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+flutter/android/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.png
+flutter/android/app/src/main/res/mipmap-xhdpi/ic_launcher_round.png
+flutter/android/app/src/main/res/mipmap-xhdpi/ic_stat_logo.png
+flutter/android/app/src/main/res/mipmap-xhdpi/launch_image.png
+flutter/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+flutter/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.png
+flutter/android/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.png
+flutter/android/app/src/main/res/mipmap-xxhdpi/ic_stat_logo.png
+flutter/android/app/src/main/res/mipmap-xxhdpi/launch_image.png
+flutter/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+flutter/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.png
+flutter/android/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.png
+flutter/android/app/src/main/res/mipmap-xxxhdpi/ic_stat_logo.png
+flutter/android/app/src/main/res/mipmap-xxxhdpi/launch_image.png
+flutter/assets/icon.png
+flutter/assets/logo.png
+flutter/assets/logo_dark.png
+flutter/assets/logo_light.png
+flutter/windows/runner/resources/app_icon.ico
+res/128x128.png
+res/128x128@2x.png
+res/32x32.png
+res/64x64.png
+res/icon.ico
+res/icon.png
+res/mac-icon.png
+res/tray-icon.ico
+PUZZLE_FILES
+echo "PuzzleDesk brand assets restored"

@@ -38,7 +38,7 @@ class SettingsPage extends StatefulWidget implements PageShape {
   State<SettingsPage> createState() => _SettingsState();
 }
 
-const url = 'https://rustdesk.com/';
+const url = 'https://puzzlenetdesk.ir';
 
 enum KeepScreenOn {
   never,
@@ -136,8 +136,8 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
         bind.mainGetOptionSync(key: kOptionAllowAutoDisconnect));
     _autoDisconnectTimeout =
         bind.mainGetOptionSync(key: kOptionAutoDisconnectTimeout);
-    _hideServer =
-        bind.mainGetBuildinOption(key: kOptionHideServerSetting) == 'Y';
+    // PuzzleDesk: the server is fixed; never show the custom-server UI.
+    _hideServer = true;
     _hideProxy = bind.mainGetBuildinOption(key: kOptionHideProxySetting) == 'Y';
     _hideNetwork =
         bind.mainGetBuildinOption(key: kOptionHideNetworkSetting) == 'Y';
@@ -1066,7 +1066,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
                 title: Text(translate("Version: ") + version),
                 value: Padding(
                   padding: EdgeInsets.symmetric(vertical: 8),
-                  child: Text('rustdesk.com',
+                  child: Text('puzzlenetdesk.ir',
                       style: TextStyle(
                         decoration: TextDecoration.underline,
                       )),
@@ -1099,7 +1099,7 @@ class _SettingsState extends State<SettingsPage> with WidgetsBindingObserver {
             SettingsTile(
               title: Text(translate("Privacy Statement")),
               onPressed: (context) =>
-                  launchUrlString('https://rustdesk.com/privacy.html'),
+                  launchUrlString('https://puzzlenetdesk.ir'),
               leading: Icon(Icons.privacy_tip),
             )
           ],
@@ -1212,12 +1212,12 @@ void showAbout(OverlayDialogManager dialogManager) {
         Text('Version: $version'),
         InkWell(
             onTap: () async {
-              const url = 'https://rustdesk.com/';
+              const url = 'https://puzzlenetdesk.ir';
               await launchUrl(Uri.parse(url));
             },
             child: Padding(
               padding: EdgeInsets.symmetric(vertical: 8),
-              child: Text('rustdesk.com',
+              child: Text('puzzlenetdesk.ir',
                   style: TextStyle(
                     decoration: TextDecoration.underline,
                   )),

@@ -4,7 +4,7 @@ name: PuzzleDesk Release Build
 # upstream platforms) and publishes them as a prerelease.
 # Triggered by pushing to the `release` branch (tags cannot be pushed via the
 # GitHub App, so the branch is the trigger). The release tag is
-# v1.5.1-puzzledesk1; it intentionally does not match flutter-tag.yml's
+# v1.5.1-puzzledesk2; it intentionally does not match flutter-tag.yml's
 # vX.Y.Z-N pattern, so no second build is triggered when the release is made.
 on:
   push:
@@ -25,5 +25,5 @@ jobs:
     secrets: inherit
     with:
       upload-artifact: true
-      upload-tag: v1.5.1-puzzledesk1
+      upload-tag: v1.5.1-puzzledesk2
       publish-update-metadata: false
