@@ -34,17 +34,13 @@
 
 ## ⬇️ دانلود
 
-آخرین نسخه: **[v1.5.1-puzzledesk1](https://github.com/puzzle-net-iran/PuzzleDesk/releases/tag/v1.5.1-puzzledesk1)**
+آخرین نسخه: **[v1.5.1-puzzledesk2](https://github.com/puzzle-net-iran/PuzzleDesk/releases/tag/v1.5.1-puzzledesk2)** (در حال ساخت)
 
 ### ویندوز
 
-| فایل | معماری | حجم |
-| --- | --- | --- |
-| [rustdesk-1.5.1-x86_64.exe](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-x86_64.exe) | ۶۴ بیتی (x86_64) | ۲۶ مگابایت |
-| [rustdesk-1.5.1-x86_64.msi](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-x86_64.msi) | ۶۴ بیتی (x86_64) — نصب‌کننده | ۲۶٫۷ مگابایت |
-| [rustdesk-1.5.1-aarch64.exe](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-aarch64.exe) | ARM64 | ۲۴٫۱ مگابایت |
-| [rustdesk-1.5.1-aarch64.msi](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-aarch64.msi) | ARM64 — نصب‌کننده | ۲۴٫۸ مگابایت |
-| [rustdesk-1.5.1-x86-sciter.exe](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-x86-sciter.exe) | ۳۲ بیتی (x86) — نسخهٔ سبک | ۱۳٫۶ مگابایت |
+فایل‌های ویندوز (exe و نصب‌کنندهٔ msi برای ۶۴ بیتی و ARM64، به‌علاوهٔ نسخهٔ
+سبک ۳۲ بیتی) را از **[صفحهٔ ریلیزها](https://github.com/puzzle-net-iran/PuzzleDesk/releases)**
+دانلود کنید — همهٔ فایل‌ها با نام PuzzleDesk منتشر می‌شوند.
 
 > نسخه‌های ویندوز فعلاً بدون امضای دیجیتال منتشر می‌شوند؛ هنگام نصب، هشدار
 > SmartScreen ویندوز را با «Run anyway» رد کنید.
