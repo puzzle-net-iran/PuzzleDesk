@@ -110,7 +110,7 @@ jobs:
       uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       with:
         submodules: recursive
-    - name: Restore binary assets from upstream (PuzzleDesk)
+    - name: Restore binary assets from upstream (puzzlenetdesk)
       shell: bash
       run: bash .github/scripts/fetch-upstream-assets.sh
 
