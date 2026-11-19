@@ -153,13 +153,8 @@ class _ScanPageState extends State<ScanPage> {
       showToast('Invalid QR code');
       return;
     }
-    try {
-      final sc = ServerConfig.decode(data.substring(7));
-      Timer(Duration(milliseconds: 60), () {
-        showServerSettingsWithValue(sc, gFFI.dialogManager, null);
-      });
-    } catch (e) {
-      showToast('Invalid QR code');
-    }
+    // PuzzleDesk: the server is fixed; a scanned server config must not
+    // open the server settings.
+    showToast('The server is fixed by PuzzleDesk');
   }
 }

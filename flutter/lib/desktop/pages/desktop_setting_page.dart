@@ -1830,8 +1830,8 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
   }
 
   Widget network(BuildContext context) {
-    final hideServer =
-        bind.mainGetBuildinOption(key: kOptionHideServerSetting) == 'Y';
+    // PuzzleDesk: the server is fixed; never show the custom-server UI.
+    final hideServer = true;
     final hideProxy =
         isWeb || bind.mainGetBuildinOption(key: kOptionHideProxySetting) == 'Y';
     final hideWebSocket = isWeb ||
@@ -2617,7 +2617,7 @@ class _AboutState extends State<_About> {
                       .marginSymmetric(vertical: 4.0)),
               InkWell(
                   onTap: () {
-                    launchUrlString('https://rustdesk.com/privacy.html');
+                    launchUrlString('https://puzzlenetdesk.ir');
                   },
                   child: Text(
                     translate('Privacy Statement'),
@@ -2625,14 +2625,14 @@ class _AboutState extends State<_About> {
                   ).marginSymmetric(vertical: 4.0)),
               InkWell(
                   onTap: () {
-                    launchUrlString('https://rustdesk.com');
+                    launchUrlString('https://puzzlenetdesk.ir');
                   },
                   child: Text(
                     translate('Website'),
                     style: linkStyle,
                   ).marginSymmetric(vertical: 4.0)),
               Container(
-                decoration: const BoxDecoration(color: Color(0xFF2c8cff)),
+                decoration: const BoxDecoration(color: Color(0xFFAD0214)),
                 padding:
                     const EdgeInsets.symmetric(vertical: 24, horizontal: 8),
                 child: SelectionArea(
@@ -2643,7 +2643,7 @@ class _AboutState extends State<_About> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Copyright © ${DateTime.now().toString().substring(0, 4)} Purslane Tech Pte. Ltd.\n$license',
+                            'Copyright © ${DateTime.now().toString().substring(0, 4)} PuzzleNet\n$license',
                             style: const TextStyle(color: Colors.white),
                           ),
                           Text(

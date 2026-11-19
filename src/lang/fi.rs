@@ -522,7 +522,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("auto_disconnect_option_tip", "Katkaise yhteys automaattisesti, jos ei aktiivisuutta määräaikaan mennessä."),
         ("Connection failed due to inactivity", "Yhteys epäonnistui toimettomuuden vuoksi"),
         ("Check for software update on startup", "Tarkista ohjelmistopäivitykset käynnistyksen yhteydessä"),
-        ("upgrade_rustdesk_server_pro_to_{}_tip", "Päivitä RustDesk Server Pro versioon {} jatkaaksesi."),
+        ("upgrade_puzzledesk_server_pro_to_{}_tip", "Päivitä RustDesk Server Pro versioon {} jatkaaksesi."),
         ("pull_group_failed_tip", "Ryhmäasetusten nouto epäonnistui."),
         ("Filter by intersection", "Suodata leikkausten perusteella"),
         ("Remove wallpaper during incoming sessions", "Poista taustakuva saapuvien istuntojen ajaksi"),

@@ -522,7 +522,7 @@ pub static ref T: std::collections::HashMap<&'static str, &'static str> =
         ("auto_disconnect_option_tip", "പ്രവർത്തനമില്ലെങ്കിൽ താനേ വിച്ഛേദിക്കുക"),
         ("Connection failed due to inactivity", "പ്രവർത്തനമില്ലാത്തതിനാൽ കണക്ഷൻ വിച്ഛേദിച്ചു"),
         ("Check for software update on startup", "തുടങ്ങുമ്പോൾ അപ്‌ഡേറ്റ് ഉണ്ടോ എന്ന് പരിശോധിക്കുക"),
-        ("upgrade_rustdesk_server_pro_to_{}_tip", "സെർവർ പ്രോ {} ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക"),
+        ("upgrade_puzzledesk_server_pro_to_{}_tip", "സെർവർ പ്രോ {} ലേക്ക് അപ്‌ഗ്രേഡ് ചെയ്യുക"),
         ("pull_group_failed_tip", "ഗ്രൂപ്പ് വിവരങ്ങൾ ലഭിക്കുന്നതിൽ പരാജയപ്പെട്ടു"),
         ("Filter by intersection", "ഇന്റർസെക്ഷൻ വഴി ഫിൽട്ടർ ചെയ്യുക"),
         ("Remove wallpaper during incoming sessions", "കണക്ഷൻ സമയത്ത് വാൾപേപ്പർ മാറ്റുക"),
