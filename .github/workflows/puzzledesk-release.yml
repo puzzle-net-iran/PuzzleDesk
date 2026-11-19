@@ -12,6 +12,13 @@ on:
       - release
   workflow_dispatch:
 
+# The repo's default GITHUB_TOKEN permission is contents: read. A caller
+# workflow's permissions are the ceiling for the reusable workflow it calls,
+# and flutter-build.yml's generate-sbom / publish-signed-update-metadata jobs
+# request contents: write — without this the run fails at startup.
+permissions:
+  contents: write
+
 jobs:
   build:
     uses: ./.github/workflows/flutter-build.yml
