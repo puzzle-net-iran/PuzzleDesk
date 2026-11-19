@@ -34,13 +34,17 @@
 
 ## ⬇️ دانلود
 
-آخرین نسخه: **[v1.5.1-puzzlenetdesk1](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/tag/v1.5.1-puzzlenetdesk1)** (در حال ساخت)
+آخرین نسخه: **[v1.5.1-puzzlenetdesk1](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/tag/v1.5.1-puzzlenetdesk1)**
 
 ### ویندوز
 
-فایل‌های ویندوز (exe و نصب‌کنندهٔ msi برای ۶۴ بیتی و ARM64، به‌علاوهٔ نسخهٔ
-سبک ۳۲ بیتی) را از **[صفحهٔ ریلیزها](https://github.com/puzzle-net-iran/puzzlenetdesk/releases)**
-دانلود کنید — همهٔ فایل‌ها با نام puzzlenetdesk منتشر می‌شوند.
+| فایل | معماری | حجم |
+| --- | --- | --- |
+| [puzzlenetdesk-1.5.1-x86_64.exe](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/download/v1.5.1-puzzlenetdesk1/puzzlenetdesk-1.5.1-x86_64.exe) | ۶۴ بیتی (x86_64) | ۲۵٫۴ مگابایت |
+| [puzzlenetdesk-1.5.1-x86_64.msi](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/download/v1.5.1-puzzlenetdesk1/puzzlenetdesk-1.5.1-x86_64.msi) | ۶۴ بیتی (x86_64) — نصب‌کننده | ۲۵٫۹ مگابایت |
+| [puzzlenetdesk-1.5.1-aarch64.exe](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/download/v1.5.1-puzzlenetdesk1/puzzlenetdesk-1.5.1-aarch64.exe) | ARM64 | ۲۳٫۵ مگابایت |
+| [puzzlenetdesk-1.5.1-aarch64.msi](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/download/v1.5.1-puzzlenetdesk1/puzzlenetdesk-1.5.1-aarch64.msi) | ARM64 — نصب‌کننده | ۲۴٫۱ مگابایت |
+| [puzzlenetdesk-1.5.1-x86-sciter.exe](https://github.com/puzzle-net-iran/puzzlenetdesk/releases/download/v1.5.1-puzzlenetdesk1/puzzlenetdesk-1.5.1-x86-sciter.exe) | ۳۲ بیتی (x86) — نسخهٔ سبک | ۱۳٫۴ مگابایت |
 
 > نسخه‌های ویندوز فعلاً بدون امضای دیجیتال منتشر می‌شوند؛ هنگام نصب، هشدار
 > SmartScreen ویندوز را با «Run anyway» رد کنید.
