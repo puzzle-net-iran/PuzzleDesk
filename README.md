@@ -1,195 +1,158 @@
-# PuzzleDesk
+<div dir="rtl" align="center">
 
-> **PuzzleDesk** is the PuzzleNet-branded remote desktop client, forked from
-> [RustDesk](https://github.com/rustdesk/rustdesk) 1.5.1 (AGPL-3.0, see
-> [LICENCE](LICENCE)). It is preconfigured to use PuzzleNet's self-hosted
-> server at `r01.puzzlenetdesk.ir` instead of RustDesk's public servers.
-> Everything below this note is the upstream RustDesk README, kept as-is.
->
-> Binary assets (icons, fonts) are restored in CI from the upstream commit by
-> `.github/scripts/fetch-upstream-assets.sh` — this repo's snapshot is text-only.
+<img src="https://puzzlenetdesk.ir/logo.jpg" alt="PuzzleDesk" width="140">
+
+# پازل‌دسک — PuzzleDesk
+
+**نرم‌افزار ریموت دسکتاپ پازل‌نت — خدمتی نوین از گروه فنی پازل‌نت**
+
+[![Release](https://img.shields.io/github/v/release/puzzle-net-iran/PuzzleDesk?label=%D9%86%D8%B3%D8%AE%D9%87&color=AD0214)](https://github.com/puzzle-net-iran/PuzzleDesk/releases)
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL--3.0-blue.svg)](LICENCE)
+[![Website](https://img.shields.io/badge/Website-puzzlenetdesk.ir-AD0214)](https://puzzlenetdesk.ir)
+
+[🌐 وب‌سایت](https://puzzlenetdesk.ir) •
+[⬇️ دانلود](#-دانلود) •
+[🚀 شروع سریع](#-شروع-سریع) •
+[🛠️ ساخت از سورس](#️-ساخت-از-سورس) •
+[💬 پشتیبانی](#-پشتیبانی)
+
+</div>
 
 ---
 
-<p align="center">
-  <img src="res/logo-header.svg" alt="RustDesk - Your remote desktop"><br>
-  <a href="#raw-steps-to-build">Build</a> •
-  <a href="#how-to-build-with-docker">Docker</a> •
-  <a href="#file-structure">Structure</a> •
-  <a href="#screenshots">Screenshots</a><br>
-  [<a href="docs/README-UA.md">Українська</a>] | [<a href="docs/README-CS.md">česky</a>] | [<a href="docs/README-ZH.md">中文</a>] | [<a href="docs/README-HU.md">Magyar</a>] | [<a href="docs/README-ES.md">Español</a>] | [<a href="docs/README-FA.md">فارسی</a>] | [<a href="docs/README-FR.md">Français</a>] | [<a href="docs/README-DE.md">Deutsch</a>] | [<a href="docs/README-PL.md">Polski</a>] | [<a href="docs/README-ID.md">Indonesian</a>] | [<a href="docs/README-FI.md">Suomi</a>] | [<a href="docs/README-ML.md">മലയാളം</a>] | [<a href="docs/README-JP.md">日本語</a>] | [<a href="docs/README-NL.md">Nederlands</a>] | [<a href="docs/README-IT.md">Italiano</a>] | [<a href="docs/README-RU.md">Русский</a>] | [<a href="docs/README-PTPT.md">Português (Portugal)</a>] | [<a href="docs/README-PTBR.md">Português (Brasil)</a>] | [<a href="docs/README-EO.md">Esperanto</a>] | [<a href="docs/README-KR.md">한국어</a>] | [<a href="docs/README-AR.md">العربي</a>] | [<a href="docs/README-VN.md">Tiếng Việt</a>] | [<a href="docs/README-DA.md">Dansk</a>] | [<a href="docs/README-GR.md">Ελληνικά</a>] | [<a href="docs/README-TR.md">Türkçe</a>] | [<a href="docs/README-NO.md">Norsk</a>] | [<a href="docs/README-RO.md">Română</a>]<br>
-  <b>We need your help to translate this README, <a href="https://github.com/rustdesk/rustdesk/tree/master/src/lang">RustDesk UI</a> and <a href="https://github.com/rustdesk/doc.rustdesk.com">RustDesk Doc</a> to your native language</b>
-</p>
+## معرفی
 
-> [!Caution]
-> **Misuse Disclaimer:** <br>
-> The developers of RustDesk do not condone or support any unethical or illegal use of this software. Misuse, such as unauthorized access, control or invasion of privacy, is strictly against our guidelines. The authors are not responsible for any misuse of the application.
+**پازل‌دسک** نرم‌افزار کنترل از راه دور (ریموت دسکتاپ) گروه فنی پازل‌نت است؛ بر پایهٔ
+[RustDesk](https://github.com/rustdesk/rustdesk) نسخهٔ ۱٫۵٫۱ ساخته شده و با برند و
+سرور اختصاصی پازل‌نت ارائه می‌شود. همهٔ اتصال‌ها از **سرور ریموت ما** عبور می‌کند —
+سریع، پایدار و تحت کنترل گروه فنی پازل‌نت؛ هیچ ترافیکی سمت سرورهای عمومی RustDesk
+نمی‌رود.
 
+با پازل‌دسک می‌توانید از هر جایی به کامپیوتر خودتان یا کامپیوتر مشتری وصل شوید:
+پشتیبانی از راه دور، کار از خانه، دسترسی به فایل‌ها و مدیریت سیستم‌ها — بدون
+نیاز به هیچ تنظیم اضافه‌ای.
 
-Chat with us: [Discord](https://discord.gg/nDceKgxnkV) | [Twitter](https://twitter.com/rustdesk) | [Reddit](https://www.reddit.com/r/rustdesk) | [YouTube](https://www.youtube.com/@rustdesk)
+## ⬇️ دانلود
 
-[![RustDesk Server Pro](https://img.shields.io/badge/RustDesk%20Server%20Pro-Advanced%20Features-blue)](https://rustdesk.com/pricing.html)
+آخرین نسخه: **[v1.5.1-puzzledesk1](https://github.com/puzzle-net-iran/PuzzleDesk/releases/tag/v1.5.1-puzzledesk1)**
 
-Yet another remote desktop solution, written in Rust. Works out of the box with no configuration required. You have full control of your data, with no concerns about security. You can use our rendezvous/relay server, [set up your own](https://rustdesk.com/server), or [write your own rendezvous/relay server](https://github.com/rustdesk/rustdesk-server-demo).
+### ویندوز
 
-![image](https://user-images.githubusercontent.com/71636191/171661982-430285f0-2e12-4b1d-9957-4a58e375304d.png)
+| فایل | معماری | حجم |
+| --- | --- | --- |
+| [rustdesk-1.5.1-x86_64.exe](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-x86_64.exe) | ۶۴ بیتی (x86_64) | ۲۶ مگابایت |
+| [rustdesk-1.5.1-x86_64.msi](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-x86_64.msi) | ۶۴ بیتی (x86_64) — نصب‌کننده | ۲۶٫۷ مگابایت |
+| [rustdesk-1.5.1-aarch64.exe](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-aarch64.exe) | ARM64 | ۲۴٫۱ مگابایت |
+| [rustdesk-1.5.1-aarch64.msi](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-aarch64.msi) | ARM64 — نصب‌کننده | ۲۴٫۸ مگابایت |
+| [rustdesk-1.5.1-x86-sciter.exe](https://github.com/puzzle-net-iran/PuzzleDesk/releases/download/v1.5.1-puzzledesk1/rustdesk-1.5.1-x86-sciter.exe) | ۳۲ بیتی (x86) — نسخهٔ سبک | ۱۳٫۶ مگابایت |
 
-RustDesk welcomes contribution from everyone. See [CONTRIBUTING.md](docs/CONTRIBUTING.md) for help getting started.
+> نسخه‌های ویندوز فعلاً بدون امضای دیجیتال منتشر می‌شوند؛ هنگام نصب، هشدار
+> SmartScreen ویندوز را با «Run anyway» رد کنید.
 
-[**FAQ**](https://github.com/rustdesk/rustdesk/wiki/FAQ)
+### اندروید
 
-[**BINARY DOWNLOAD**](https://github.com/rustdesk/rustdesk/releases)
+نسخهٔ اندروید به‌زودی منتشر می‌شود.
 
-[**NIGHTLY BUILD**](https://github.com/rustdesk/rustdesk/releases/tag/nightly)
+## 🚀 شروع سریع
 
-[<img src="https://f-droid.org/badge/get-it-on.png"
-    alt="Get it on F-Droid"
-    height="80">](https://f-droid.org/en/packages/com.carriez.flutter_hbb)
-[<img src="https://flathub.org/api/badge?svg&locale=en"
-    alt="Get it on Flathub"
-    height="80">](https://flathub.org/apps/com.rustdesk.RustDesk)
+۱. **دانلود و اجرا** — فایل ویندوز را دانلود و اجرا کنید؛ نیازی به نصب نیست
+   (نسخهٔ exe قابل‌حمل است).
+۲. **آیدی و رمز را ببینید** — بعد از اجرا، یک آیدی ۹ رقمی و یک رمز یک‌بارمصرف
+   روی صفحه می‌آید.
+۳. **وصل شوید** — از دستگاه دیگر، آیدی را وارد کنید، رمز را بدهید و متصل شوید.
 
-## Dependencies
+برای اتصال همیشگی، در تنظیمات یک **رمز ثابت** بگذارید و گزینهٔ «اجازهٔ اتصال
+بدون تأیید» را فعال کنید.
 
-Desktop versions use Flutter or Sciter (deprecated) for GUI. This tutorial is for Sciter only, since it is easier and more friendly to start. Check out our [CI](https://github.com/rustdesk/rustdesk/blob/master/.github/workflows/flutter-build.yml) for building the Flutter version.
+## ✨ امکانات
 
-Please download Sciter dynamic library yourself.
+- **کنترل کامل از راه دور** — صفحه، کیبورد و موس دستگاه مقابل، با کیفیت بالا
+- **انتقال فایل** — جابه‌جایی فایل بین دو دستگاه، با کشیدن و رها کردن
+- **چت و تماس** — گفت‌وگوی متنی و صوتی در حین اتصال
+- **تونل TCP** — اتصال امن به سرویس‌های داخلی شبکهٔ مقابل
+- **دسترسی بدون حضور** — با رمز ثابت، حتی وقتی کسی پای دستگاه نیست
+- **چند مانیتور** — جابه‌جایی بین مانیتورهای دستگاه مقابل
+- **سرور اختصاصی** — اتصال از سرور خودمان، بدون واسطهٔ خارجی
+- **رابط فارسی** — زبان پیش‌فرض برنامه فارسی است
 
-[Windows](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.win/x64/sciter.dll) |
-[Linux](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so) |
-[macOS](https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.osx/libsciter.dylib)
+## 🔒 امنیت و حریم خصوصی
 
-## Raw Steps to build
+- اتصال‌ها با رمزنگاری سرتاسری محافظت می‌شوند.
+- رمز اتصال فقط دست شماست؛ حتی ما هم به دستگاه شما دسترسی نداریم.
+- سرور رله و راندوو روی زیرساخت خود پازل‌نت میزبانی می‌شود و هیچ داده‌ای
+  سمت سرورهای خارجی نمی‌رود.
+- برای امنیت بیشتر، رمز ثابت قوی بگذارید و آیدی خود را فقط به کسانی بدهید
+  که به آن‌ها اعتماد دارید.
 
-- Prepare your Rust development env and C++ build env
+## 🖥️ سرور
 
-- Install [vcpkg](https://github.com/microsoft/vcpkg), and set `VCPKG_ROOT` env variable correctly
+سرور پازل‌دسک (rendezvous + relay) روی VPS اختصاصی پازل‌نت میزبانی می‌شود و
+کلاینت از پیش برای اتصال به آن تنظیم شده است؛ کاربر هیچ تنظیمی لازم ندارد.
+وضعیت لحظه‌ای سرور را می‌توانید روی [وب‌سایت](https://puzzlenetdesk.ir)
+ببینید (چراغ سبز = وصل، قرمز = قطع).
 
-  - Windows: vcpkg install libvpx:x64-windows-static libyuv:x64-windows-static opus:x64-windows-static aom:x64-windows-static
-  - Linux/macOS: vcpkg install libvpx libyuv opus aom
+## 🛠️ ساخت از سورس
 
-- run `cargo run`
-
-## [Build](https://rustdesk.com/docs/en/dev/build/)
-
-## How to Build on Linux
-
-### Ubuntu 18 (Debian 10)
-
-```sh
-sudo apt install -y zip g++ gcc git curl wget nasm yasm libgtk-3-dev clang libxcb-randr0-dev libxdo-dev \
-        libxfixes-dev libxcb-shape0-dev libxcb-xfixes0-dev libasound2-dev libpulse-dev cmake make \
-        libclang-dev ninja-build libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev
-```
-
-### openSUSE Tumbleweed
-
-```sh
-sudo zypper install gcc-c++ git curl wget nasm yasm gcc gtk3-devel clang libxcb-devel libXfixes-devel cmake alsa-lib-devel gstreamer-devel gstreamer-plugins-base-devel xdotool-devel
-```
-
-### Fedora 28 (CentOS 8)
+بیلدها به‌صورت خودکار با GitHub Actions ساخته می‌شوند؛ برای ساخت دستی:
 
 ```sh
-sudo yum -y install gcc-c++ git curl wget nasm yasm gcc gtk3-devel clang libxcb-devel libxdo-devel libXfixes-devel pulseaudio-libs-devel cmake alsa-lib-devel gstreamer1-devel gstreamer1-plugins-base-devel
+git clone https://github.com/puzzle-net-iran/PuzzleDesk
+cd PuzzleDesk
 ```
 
-### Arch (Manjaro)
+- فایل‌های باینری (آیکون‌ها و فونت‌ها) در این مخزن نیستند؛ اسکریپت
+  `.github/scripts/fetch-upstream-assets.sh` آن‌ها را در CI از کامیت
+  upstream بازیابی می‌کند.
+- پیش‌نیازها: Rust (stable)، Flutter، و vcpkg برای وابستگی‌های C++
+  (جزئیات کامل در [مستندات ساخت RustDesk](https://rustdesk.com/docs/en/dev/build/)).
+- سرور و کلید عمومی در `libs/hbb_common/src/config.rs` تنظیم شده‌اند.
 
-```sh
-sudo pacman -Syu --needed unzip git cmake gcc curl wget yasm nasm zip make pkg-config clang gtk3 xdotool libxcb libxfixes alsa-lib pipewire
-```
+ورک‌فلوها در `.github/workflows/` هستند؛ بیلد ریلیز با پوش به شاخهٔ
+`release` اجرا می‌شود.
 
-### Install vcpkg
+## 📁 ساختار مخزن
 
-```sh
-git clone https://github.com/microsoft/vcpkg
-cd vcpkg
-git checkout 2023.04.15
-cd ..
-vcpkg/bootstrap-vcpkg.sh
-export VCPKG_ROOT=$HOME/vcpkg
-vcpkg/vcpkg install libvpx libyuv opus aom
-```
+- `src/` — هستهٔ Rust برنامه (سرور، کلاینت، پلتفرم)
+- `flutter/` — رابط کاربری (Flutter)
+- `libs/hbb_common/` — کد مشترک با سرور (پروتکل، پیکربندی)
+- `libs/scrap/` ،`libs/enigo/` ،`libs/clipboard/` — ضبط صفحه، ورودی و کلیپ‌بورد
+- `.github/workflows/` — بیلد و ریلیز خودکار
 
-### Fix libvpx (For Fedora)
+## 🤝 مشارکت
 
-```sh
-cd vcpkg/buildtrees/libvpx/src
-cd *
-./configure
-sed -i 's/CFLAGS+=-I/CFLAGS+=-fPIC -I/g' Makefile
-sed -i 's/CXXFLAGS+=-I/CXXFLAGS+=-fPIC -I/g' Makefile
-make
-cp libvpx.a $HOME/vcpkg/installed/x64-linux/lib/
-cd
-```
+مشارکت در بهبود پازل‌دسک آزاد است؛ Issue باز کنید یا Pull Request بفرستید.
+قوانین خانهٔ مخزن (حداقل تغییر، بدون ریفکتور بی‌مورد) در
+[`fork/AGENTS.md`](https://github.com/puzzle-net-iran/PuzzleDesk/blob/master/AGENTS.md)
+آمده است.
 
-### Build
+## 📄 لایسنس و اعتبار
 
-```sh
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-source $HOME/.cargo/env
-git clone --recurse-submodules https://github.com/rustdesk/rustdesk
-cd rustdesk
-mkdir -p target/debug
-wget https://raw.githubusercontent.com/c-smile/sciter-sdk/master/bin.lnx/x64/libsciter-gtk.so
-mv libsciter-gtk.so target/debug
-VCPKG_ROOT=$HOME/vcpkg cargo run
-```
+پازل‌دسک تحت لایسنس **AGPL-3.0** منتشر می‌شود ([متن کامل](LICENCE)) و
+فورکی از [RustDesk](https://github.com/rustdesk/rustdesk) است؛ لایسنس و اعتبار
+بالادستی حفظ شده است.
 
-## How to build with Docker
+## 💬 پشتیبانی
 
-Begin by cloning the repository and building the Docker container:
+- 🌐 وب‌سایت: [puzzlenetdesk.ir](https://puzzlenetdesk.ir)
+- 💬 چت پشتیبانی: [tawk.to](https://tawk.to/0233e6eb0a0f478f10b8690c7c83dca85e22f9fa)
+- ✈️ تلگرام: [@pazzle_net](https://t.me/pazzle_net)
+- 🏢 گروه فنی پازل‌نت: [puzzlenet-group.ir](https://puzzlenet-group.ir)
 
-```sh
-git clone https://github.com/rustdesk/rustdesk
-cd rustdesk
-git submodule update --init --recursive
-docker build -t "rustdesk-builder" .
-```
+---
 
-Then, each time you need to build the application, run the following command:
+<div dir="ltr" align="center">
 
-```sh
-docker run --rm -it -v $PWD:/home/user/rustdesk -v rustdesk-git-cache:/home/user/.cargo/git -v rustdesk-registry-cache:/home/user/.cargo/registry -e PUID="$(id -u)" -e PGID="$(id -g)" rustdesk-builder
-```
+## PuzzleDesk (English)
 
-Note that the first build may take longer before dependencies are cached, subsequent builds will be faster. Additionally, if you need to specify different arguments to the build command, you may do so at the end of the command in the `<OPTIONAL-ARGS>` position. For instance, if you wanted to build an optimized release version, you would run the command above followed by `--release`. The resulting executable will be available in the target folder on your system, and can be run with:
+**PuzzleDesk** is PuzzleNet's remote desktop client — a branded fork of
+[RustDesk](https://github.com/rustdesk/rustdesk) 1.5.1 (AGPL-3.0), preconfigured
+to use PuzzleNet's self-hosted rendezvous/relay server. No traffic goes to
+RustDesk's public servers.
 
-```sh
-target/debug/rustdesk
-```
+- **Download:** [Releases](https://github.com/puzzle-net-iran/PuzzleDesk/releases) — Windows (x86_64 / aarch64 / x86 Sciter) available now; Android coming soon.
+- **Quick start:** run the app, share your 9-digit ID and one-time password, connect.
+- **Website:** [puzzlenetdesk.ir](https://puzzlenetdesk.ir) •
+  **Support:** [Tawk.to chat](https://tawk.to/0233e6eb0a0f478f10b8690c7c83dca85e22f9fa) •
+  **Telegram:** [@pazzle_net](https://t.me/pazzle_net)
 
-Or, if you're running a release executable:
-
-```sh
-target/release/rustdesk
-```
-
-Please ensure that you run these commands from the root of the RustDesk repository, or the application may not find the required resources. Also note that other cargo subcommands such as `install` or `run` are not currently supported via this method as they would install or run the program inside the container instead of the host.
-
-## File Structure
-
-- **[libs/hbb_common](https://github.com/rustdesk/rustdesk/tree/master/libs/hbb_common)**: video codec, config, tcp/udp wrapper, and some other utility functions shared with the server
-- **[libs/base](https://github.com/rustdesk/rustdesk/tree/master/libs/base)**: protobuf, fs functions for file transfer, keyboard and platform code used only by this app
-- **[libs/scrap](https://github.com/rustdesk/rustdesk/tree/master/libs/scrap)**: screen capture
-- **[libs/enigo](https://github.com/rustdesk/rustdesk/tree/master/libs/enigo)**: platform specific keyboard/mouse control
-- **[libs/clipboard](https://github.com/rustdesk/rustdesk/tree/master/libs/clipboard)**: file copy and paste implementation for Windows, Linux, macOS.
-- **[src/ui](https://github.com/rustdesk/rustdesk/tree/master/src/ui)**: obsolete Sciter UI (deprecated)
-- **[src/server](https://github.com/rustdesk/rustdesk/tree/master/src/server)**: audio/clipboard/input/video services, and network connections
-- **[src/client.rs](https://github.com/rustdesk/rustdesk/tree/master/src/client.rs)**: start a peer connection
-- **[src/rendezvous_mediator.rs](https://github.com/rustdesk/rustdesk/tree/master/src/rendezvous_mediator.rs)**: Communicate with [rustdesk-server](https://github.com/rustdesk/rustdesk-server), wait for remote direct (TCP hole punching) or relayed connection
-- **[src/platform](https://github.com/rustdesk/rustdesk/tree/master/src/platform)**: platform specific code
-- **[flutter](https://github.com/rustdesk/rustdesk/tree/master/flutter)**: Flutter code for desktop and mobile
-
-## Screenshots
-
-![Connection Manager](https://github.com/rustdesk/rustdesk/assets/28412477/db82d4e7-c4bc-4823-8e6f-6af7eadf7651)
-
-![Connected to a Windows PC](https://github.com/rustdesk/rustdesk/assets/28412477/9baa91e9-3362-4d06-aa1a-7518edcbd7ea)
-
-![File Transfer](https://github.com/rustdesk/rustdesk/assets/28412477/39511ad3-aa9a-4f8c-8947-1cce286a46ad)
-
-![TCP Tunneling](https://github.com/rustdesk/rustdesk/assets/28412477/78e8708f-e87e-4570-8373-1360033ea6c5)
-
+</div>
