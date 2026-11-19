@@ -1,4 +1,4 @@
-name: Build the flutter version of PuzzleDesk
+name: Build the flutter version of puzzlenetdesk
 
 on:
   workflow_call:
@@ -105,7 +105,7 @@ jobs:
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -115,7 +115,7 @@ jobs:
       - name: Generate SBOM
         run: |
           syft dir:. \
-            -o cyclonedx-json=puzzledesk.sbom.json
+            -o cyclonedx-json=puzzlenetdesk.sbom.json
 
       - name: Publish Release
         uses: softprops/action-gh-release@de2c0eb89ae2a093876385947365aca7b0e5f844 # v1
@@ -124,7 +124,7 @@ jobs:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
           files: |
-            puzzledesk.sbom.json
+            puzzlenetdesk.sbom.json
 
   generate-bridge:
     needs: [validate-update-metadata-keys]
@@ -192,7 +192,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -410,7 +410,7 @@ jobs:
         if: env.UPLOAD_ARTIFACT == 'true'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: puzzledesk-unsigned-windows-${{ matrix.job.arch }}
+          name: puzzlenetdesk-unsigned-windows-${{ matrix.job.arch }}
           path: rustdesk
 
       - name: Sign rustdesk files
@@ -453,13 +453,13 @@ jobs:
           python3 ./generate.py -f ../../rustdesk/ -e rustdesk.exe -l 11 -t "${{ matrix.job.target }}" --exclude-exe
           popd
           mkdir -p ./packer-template
-          cp ./target/${{ matrix.job.target }}/release/rustdesk-portable-packer.exe ./packer-template/puzzledesk-template-${{ matrix.job.arch }}.exe
+          cp ./target/${{ matrix.job.target }}/release/rustdesk-portable-packer.exe ./packer-template/puzzlenetdesk-template-${{ matrix.job.arch }}.exe
 
       - name: Upload unsigned template packer
         if: env.UPLOAD_ARTIFACT == 'true' && env.SIGN_BASE_URL != '-2'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: puzzledesk-unsigned-packer-template-${{ matrix.job.arch }}
+          name: puzzlenetdesk-unsigned-packer-template-${{ matrix.job.arch }}
           path: ./packer-template
           if-no-files-found: error
 
@@ -473,7 +473,7 @@ jobs:
           python3 ./generate.py -f ../../rustdesk/ -o . -e ../../rustdesk/rustdesk.exe
           popd
           mkdir -p ./SignOutput
-          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/puzzledesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
+          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/puzzlenetdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
 
       - name: Add MSBuild to PATH
         uses: microsoft/setup-msbuild@6fb02220983dee41ce7ae257b6f4d8f9bf5ed4ce # v2
@@ -490,15 +490,15 @@ jobs:
         # is x64 / ARM64; the produced Package.msi is globbed since its bin/<platform>/ dir varies.
         if: env.UPLOAD_ARTIFACT == 'true'
         run: |
-          mv ./rustdesk/rustdesk.exe ./rustdesk/PuzzleDesk.exe
+          mv ./rustdesk/rustdesk.exe ./rustdesk/puzzlenetdesk.exe
           pushd ./res/msi
-          python preprocess.py --arp --app-name PuzzleDesk --manufacturer "PuzzleNet" -d ../../rustdesk
+          python preprocess.py --arp --app-name puzzlenetdesk --manufacturer "PuzzleNet" -d ../../rustdesk
           nuget restore msi.sln
           $msiPlatform = if ('${{ matrix.job.arch }}' -eq 'aarch64') { 'ARM64' } else { 'x64' }
           msbuild msi.sln -p:Configuration=Release -p:Platform=$msiPlatform /p:TargetVersion=Windows10
           $msi = Get-ChildItem ./Package/bin/*/Release/en-us/Package.msi | Select-Object -First 1
-          mv $msi.FullName ../../SignOutput/puzzledesk-${{ env.VERSION }}-${{ matrix.job.arch }}.msi
-          sha256sum ../../SignOutput/puzzledesk-*.msi
+          mv $msi.FullName ../../SignOutput/puzzlenetdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.msi
+          sha256sum ../../SignOutput/puzzlenetdesk-*.msi
 
       - name: Build pre-built MSI template
         # Two things this works around: preprocess.py rewrites res/msi in place, so the
@@ -522,7 +522,7 @@ jobs:
         run: |
           git checkout -- res/msi
           cp -r ./rustdesk ./rustdesk-msi-template
-          mv ./rustdesk-msi-template/PuzzleDesk.exe ./rustdesk-msi-template/RDAPPNAM.exe
+          mv ./rustdesk-msi-template/puzzlenetdesk.exe ./rustdesk-msi-template/RDAPPNAM.exe
           Set-Content -Path ./rustdesk-msi-template/custom.txt -Value 'placeholder' -NoNewline
           $assets = './rustdesk-msi-template/data/flutter_assets/assets'
           New-Item -ItemType Directory -Force -Path $assets | Out-Null
@@ -537,7 +537,7 @@ jobs:
           $msi = Get-ChildItem ./Package/bin/*/Release/en-us/Package.msi | Select-Object -First 1
           popd
           mkdir ./msi-template
-          mv $msi.FullName ./msi-template/puzzledesk-template-${{ matrix.job.arch }}.msi
+          mv $msi.FullName ./msi-template/puzzlenetdesk-template-${{ matrix.job.arch }}.msi
           git checkout -- res/msi
           rm -r -fo ./rustdesk-msi-template
 
@@ -545,7 +545,7 @@ jobs:
         if: env.UPLOAD_ARTIFACT == 'true'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: puzzledesk-unsigned-msi-template-${{ matrix.job.arch }}
+          name: puzzlenetdesk-unsigned-msi-template-${{ matrix.job.arch }}
           path: ./msi-template
 
       - name: Sign rustdesk self-extracted file
@@ -559,7 +559,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: windows-flutter-${{ matrix.job.arch }}-exe
-          path: ./SignOutput/puzzledesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
+          path: ./SignOutput/puzzlenetdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.exe
           if-no-files-found: error
 
       - name: Upload signed Windows Flutter MSI
@@ -567,7 +567,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: windows-flutter-${{ matrix.job.arch }}-msi
-          path: ./SignOutput/puzzledesk-${{ env.VERSION }}-${{ matrix.job.arch }}.msi
+          path: ./SignOutput/puzzlenetdesk-${{ env.VERSION }}-${{ matrix.job.arch }}.msi
           if-no-files-found: error
 
       - name: Publish Release
@@ -577,8 +577,8 @@ jobs:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
           files: |
-            ./SignOutput/puzzledesk-*.msi
-            ./SignOutput/puzzledesk-*.exe
+            ./SignOutput/puzzlenetdesk-*.msi
+            ./SignOutput/puzzlenetdesk-*.exe
 
   # The fallback for the flutter version, we use Sciter for 32bit Windows.
   build-for-windows-sciter:
@@ -612,7 +612,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -709,7 +709,7 @@ jobs:
         if: env.UPLOAD_ARTIFACT == 'true'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: puzzledesk-unsigned-windows-${{ matrix.job.arch }}
+          name: puzzlenetdesk-unsigned-windows-${{ matrix.job.arch }}
           path: Release
 
       - name: Sign rustdesk files
@@ -752,13 +752,13 @@ jobs:
           python3 ./generate.py -f ../../Release/ -e rustdesk.exe -l 11 -t "${{ matrix.job.target }}"
           popd
           mkdir -p ./packer-template
-          cp ./target/${{ matrix.job.target }}/release/rustdesk-portable-packer.exe ./packer-template/puzzledesk-template-${{ matrix.job.arch }}.exe
+          cp ./target/${{ matrix.job.target }}/release/rustdesk-portable-packer.exe ./packer-template/puzzlenetdesk-template-${{ matrix.job.arch }}.exe
 
       - name: Upload unsigned template packer
         if: env.UPLOAD_ARTIFACT == 'true' && env.SIGN_BASE_URL != '-2'
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: puzzledesk-unsigned-packer-template-${{ matrix.job.arch }}
+          name: puzzlenetdesk-unsigned-packer-template-${{ matrix.job.arch }}
           path: ./packer-template
           if-no-files-found: error
 
@@ -771,7 +771,7 @@ jobs:
           python3 ./generate.py -f ../../Release/ -o . -e ../../Release/rustdesk.exe
           popd
           mkdir -p ./SignOutput
-          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/puzzledesk-${{ env.VERSION }}-${{ matrix.job.arch }}-sciter.exe
+          mv ./target/release/rustdesk-portable-packer.exe ./SignOutput/puzzlenetdesk-${{ env.VERSION }}-${{ matrix.job.arch }}-sciter.exe
 
       - name: Sign rustdesk self-extracted file
         if: env.UPLOAD_ARTIFACT == 'true' && env.SIGN_BASE_URL != '-2'
@@ -784,7 +784,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: windows-sciter-x86-exe
-          path: ./SignOutput/puzzledesk-${{ env.VERSION }}-${{ matrix.job.arch }}-sciter.exe
+          path: ./SignOutput/puzzlenetdesk-${{ env.VERSION }}-${{ matrix.job.arch }}-sciter.exe
           if-no-files-found: error
 
       - name: Publish Release
@@ -794,7 +794,7 @@ jobs:
           prerelease: true
           tag_name: ${{ env.TAG_NAME }}
           files: |
-            ./SignOutput/puzzledesk-*.exe
+            ./SignOutput/puzzlenetdesk-*.exe
 
   build-rustdesk-ios:
     if: ${{ inputs.upload-artifact }}
@@ -826,7 +826,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -958,7 +958,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -1501,7 +1501,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -1777,7 +1777,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -1947,7 +1947,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -2276,7 +2276,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -2615,7 +2615,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -2835,7 +2835,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -2914,7 +2914,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 
@@ -2979,7 +2979,7 @@ jobs:
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
-      - name: Restore binary assets from upstream (PuzzleDesk)
+      - name: Restore binary assets from upstream (puzzlenetdesk)
         shell: bash
         run: bash .github/scripts/fetch-upstream-assets.sh
 

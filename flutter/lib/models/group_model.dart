@@ -186,7 +186,7 @@ class GroupModel {
               json['error']
                   .toString()
                   .contains('ambiguous column name: status')) {
-            throw translate('upgrade_puzzledesk_server_pro_to_{1.1.10}_tip');
+            throw translate('upgrade_puzzlenetdesk_server_pro_to_{1.1.10}_tip');
           } else {
             throw json['error'];
           }

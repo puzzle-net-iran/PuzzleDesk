@@ -249,7 +249,7 @@ class MyTheme {
   MyTheme._();
 
   static const Color grayBg = Color(0xFFEFEFF2);
-  // PuzzleDesk brand: PuzzleNet red.
+  // puzzlenetdesk brand: PuzzleNet red.
   static const Color accent = Color(0xFFAD0214);
   static const Color accent50 = Color(0x77AD0214);
   static const Color accent80 = Color(0xAAAD0214);

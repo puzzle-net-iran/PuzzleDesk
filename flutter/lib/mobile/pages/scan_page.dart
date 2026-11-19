@@ -153,8 +153,8 @@ class _ScanPageState extends State<ScanPage> {
       showToast('Invalid QR code');
       return;
     }
-    // PuzzleDesk: the server is fixed; a scanned server config must not
+    // puzzlenetdesk: the server is fixed; a scanned server config must not
     // open the server settings.
-    showToast('The server is fixed by PuzzleDesk');
+    showToast('The server is fixed by puzzlenetdesk');
   }
 }

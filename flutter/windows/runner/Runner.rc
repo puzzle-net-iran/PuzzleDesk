@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "PuzzleNet" "\0"
-            VALUE "FileDescription", "PuzzleDesk Remote Desktop" "\0"
+            VALUE "FileDescription", "puzzlenetdesk Remote Desktop" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "puzzledesk" "\0"
+            VALUE "InternalName", "puzzlenetdesk" "\0"
             VALUE "LegalCopyright", "Copyright © 2026 PuzzleNet. All rights reserved." "\0"
-            VALUE "OriginalFilename", "puzzledesk.exe" "\0"
-            VALUE "ProductName", "PuzzleDesk" "\0"
+            VALUE "OriginalFilename", "puzzlenetdesk.exe" "\0"
+            VALUE "ProductName", "puzzlenetdesk" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

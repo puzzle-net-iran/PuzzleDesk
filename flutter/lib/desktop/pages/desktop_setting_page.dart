@@ -1830,7 +1830,7 @@ class _NetworkState extends State<_Network> with AutomaticKeepAliveClientMixin {
   }
 
   Widget network(BuildContext context) {
-    // PuzzleDesk: the server is fixed; never show the custom-server UI.
+    // puzzlenetdesk: the server is fixed; never show the custom-server UI.
     final hideServer = true;
     final hideProxy =
         isWeb || bind.mainGetBuildinOption(key: kOptionHideProxySetting) == 'Y';
